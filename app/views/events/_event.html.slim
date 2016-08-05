@@ -5,12 +5,12 @@
     h2 = event.name
 
     - if policy(event).edit?
-      button = link_to t('.edit'), edit_event_path(event)
+      = link_to t('.edit'), edit_event_path(event), class: 'button'
 
     - if policy(event).destroy?
-      button = link_to t('.destroy'), event, data: {confirm: t('delete') }, method: :delete
+      = link_to t('.destroy'), event, data: {confirm: t('delete') }, method: :delete, class: 'button'
 
-    button = link_to t('.signup'), event.signup_link
+    = link_to t('.signup'), event.signup_link, class: 'button'
 
     time = date_and_time_for(event)
     p.address = event.location.try(:name)
